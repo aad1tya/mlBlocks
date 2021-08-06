@@ -1,6 +1,9 @@
 import math
 
 class Point:
+    def __init__(self, x, y):
+        self.move(x, y)
+
     def move(self, x, y):
         self.x = x
         self.y = y
@@ -14,11 +17,8 @@ class Point:
                 (self.y - other_point.y)**2
         )
 
-point1 = Point()
-point2 = Point()
-point1.reset()
-point2.move(3, 4)
-point1.move(5, 0)
+point1 = Point(4, 3)
+point2 = Point(-2, 4)
 
 assert point2.calculate_distance(point1) == point1.calculate_distance(point2)
 
