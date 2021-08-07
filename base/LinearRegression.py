@@ -16,7 +16,6 @@ class LinearRegression():
         
         return theta
 
-
     def get_cost(self):
         m = len(self.label)
         theta = np.zeros((m, 1))
