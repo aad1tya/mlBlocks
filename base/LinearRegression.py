@@ -16,6 +16,13 @@ class LinearRegression():
         
         return theta
 
+    def fit_on_data(self, train_set, label):
+        #Preprocessing data before doing anything else.
+        train_set, label = self.data_preprocess()
+
+        self.theta = self.gradient_descent()
+        print("Done!")
+
     def get_cost(self):
         m = len(self.label)
         theta = np.zeros((m, 1))
@@ -28,7 +35,3 @@ class LinearRegression():
     
     def get_predictions(self, test_set):
         return np.dot(test_set, self.theta)
-
-
-
-
