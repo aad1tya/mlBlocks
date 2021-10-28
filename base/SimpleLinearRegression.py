@@ -41,10 +41,3 @@ class SimpleLinearRegression():
             return predictions
         except:
             raise Exception("Unexpected Error Occurred")
-    
-predictor = [1, 3, 4, 5, 6, 15]
-response = [2, 5, 9, 12, 15, 34]
-
-sLR = SimpleLinearRegression()
-predictions = sLR.fit(predictor, response)
-print(predictions)
