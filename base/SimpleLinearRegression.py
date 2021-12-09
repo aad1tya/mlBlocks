@@ -1,6 +1,3 @@
-import numpy as np
-
-
 class SimpleLinearRegression():
 
     def sample_mean(self, sample):
@@ -41,3 +38,4 @@ class SimpleLinearRegression():
             return predictions
         except:
             raise Exception("Unexpected Error Occurred")
+
