@@ -1,10 +1,12 @@
 class SimpleLinearRegression():
 
     def sample_mean(self, sample):
-        sample_sum = 0
+        if type(sample) == 'int':
+            return sample
+        if len(sample) == 0:
+            raise IndexError("Iterable is empty!")
+        sample_sum = sum(sample)
         sample_length = len(sample)
-        for i in sample:
-            sample_sum += i
         
         return sample_sum/sample_length
 
