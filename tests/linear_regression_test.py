@@ -9,13 +9,16 @@ class TestMean(unittest.TestCase):
         sample = [4, 5, 3, 1, 2]
         sample_length = len(sample)
         sample_test_obj = SimpleLinearRegression()
+
         result_single = sample_test_obj.sample_mean(sample = [1])
         self.assertEqual(result_single, 1)
+
         result = sample_test_obj.sample_mean(sample=sample)
         self.assertAlmostEqual(result, sum(sample)/sample_length)
     
         with self.assertRaises(IndexError):
             sample_test_obj.sample_mean(sample = [])
+  
         
 
 if __name__ == '__main__':
