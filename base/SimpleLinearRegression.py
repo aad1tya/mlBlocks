@@ -1,3 +1,4 @@
+import numpy as np
 class SimpleLinearRegression():
 
     def sample_mean(self, sample):
@@ -10,24 +11,17 @@ class SimpleLinearRegression():
         
         return sample_sum/sample_length
 
-    def coefficient_calculation(self, predictor, response):
-        sample_length = len(response)
-        def top_term_beta1():
-            top_term_sum = 0
-            for i in range(0, sample_length):
-                top_term_sum += (predictor[i] - self.sample_mean(predictor)) * (response[i] - self.sample_mean(response))
-            return top_term_sum
-    
-        def bottom_term_beta1():
-            bottom_term_sum = 0
-            for i in range(0, sample_length):
-                bottom_term_sum += (predictor[i] - self.sample_mean(predictor)) ** 2
-            return bottom_term_sum
+    def coefficient_calculation(self, predictors, response):
+        n = len(response)
+        x = predictors
+        y = response
+        xt = [[x[j][i] for j in range(len(x))] for i in range(len(x[0]))]
 
-        beta_1 = top_term_beta1()/bottom_term_beta1()
-        beta_0 = self.sample_mean(response) - beta_1 * self.sample_mean(predictor)
-
-        return beta_0, beta_1
+        first_term = np.linalg.inv(np.dot(xt, x))
+        second_term = np.dot(xt, y)
+        result = np.dot(first_term, second_term)
+        
+        return result
 
     def fit(self, predictor, response):
         try:
