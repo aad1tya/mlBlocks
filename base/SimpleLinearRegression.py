@@ -27,10 +27,8 @@ class SimpleLinearRegression():
         try:
             if len(predictor) != len(response):
                 raise ValueError("Lengths of Predictor and Response are unequal")
-            beta_0, beta_1 = self.coefficient_calculation(predictor, response)
-            predictions = []
-            for i in range(0, len(response)):
-                predictions.append(beta_0 + beta_1 * predictor[i])
+            beta = self.coefficient_calculation(predictor, response)
+            predictions = np.dot(x, beta)
             return predictions
         except:
             raise Exception("Unexpected Error Occurred")
